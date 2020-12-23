@@ -1,7 +1,7 @@
 var sleep=require('sleep')
-const Influx = require('influxdb-nodejs');
-const influxClient = new Influx('INSERT YOUR INFLUXDB URL HERE');
-const influxWriter = influxClient.write('INSERT YOUR INFLUXDB NAME');
+// const Influx = require('influxdb-nodejs');
+// const influxClient = new Influx('INSERT YOUR INFLUXDB URL HERE');
+// const influxWriter = influxClient.write('INSERT YOUR INFLUXDB NAME');
 
 var SerialPort= require('serialport');
 var port = new SerialPort('/dev/ttyUSB0',{baudRate:9600});
@@ -76,18 +76,18 @@ port.on('open', function() {
 			console.log("cal/h : "			+calph);
 			console.log("Level : " 			+level);
 
-			influxClient.write('rowingdata')
-			.field({
-				totalTime:	totalTime,
-				distance:	distance,
-				timeTo500m:	timeTo500m,
-				spm:		spm,
-				watt:		watt,
-				calph:		calph,
-				level:		level,
-    		})
-			.then(()=>console.info('write point success'))
-			.catch(err => console.error('write point fail', err))
+			// influxClient.write('rowingdata')
+			// .field({
+			// 	totalTime:	totalTime,
+			// 	distance:	distance,
+			// 	timeTo500m:	timeTo500m,
+			// 	spm:		spm,
+			// 	watt:		watt,
+			// 	calph:		calph,
+			// 	level:		level,
+    		// })
+			// .then(()=>console.info('write point success'))
+			// .catch(err => console.error('write point fail', err))
 		}
 		else{
 			console.log("Invalid data input")
